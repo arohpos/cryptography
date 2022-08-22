@@ -5,8 +5,10 @@ public class Main{
 	public static void main(String[] args) {
 		
 		System.out.println("Hello, world");
+		
+		Euclid euclid = new Euclid();
 			
-		Euclid.gcd(3, 1);		
+		euclid.gcd(3, 1);		
 		
 	}
 }
