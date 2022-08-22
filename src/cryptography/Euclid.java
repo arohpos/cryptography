@@ -13,7 +13,7 @@ public class Euclid{
 	 * @param n メソッドの引数2
 	 * @return mとnの最大公約数をintで返す
 	 */
-	public static int gcd(int m, int n) {
+	public int gcd(int m, int n) {
 		
 		int r = 0;
 		
