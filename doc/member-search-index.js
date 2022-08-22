@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"cryptography","c":"Euclid","l":"Euclid()","u":"%3Cinit%3E()"},{"p":"cryptography","c":"Euclid","l":"gcd(int, int)","u":"gcd(int,int)"}];updateSearchResults();
