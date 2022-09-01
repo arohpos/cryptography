@@ -32,7 +32,7 @@ public class Caesar{
 		shift_times = shift_times % N;
 		
 		//本処理
-		if(ch != ' ') {
+		if(ch == ' ') {
 			//スペースはスペースのまま
 		}else if(ch != 'z' ) {
 			//(char)によりintをcharにキャストすることで、文字コード（UTF-16）に対応した変換をする。
@@ -49,6 +49,23 @@ public class Caesar{
 	 * @param enc_key	encription key
 	 * @return c		ciphertext
 	 */
+	
+	public String enc(String p, int enc_key) {
+		
+		//charのループ内での結合のため、StringBuilderを使用
+		StringBuilder c = new StringBuilder();
+		Caesar caesar = new Caesar();
+		
+		for(int i = 0; i < p.length(); i++) {
+			
+			//String pのi番目の文字を取得し、enc_keyをもとにずらして、appendしていく。
+			c.append(caesar.shift(p.charAt(i), enc_key));
+			
+		}
+		
+		//cはStringBuilder型のため、toStringメソッドを用いてStringへ型変換する。
+		return c.toString();
+	}
 	
 	/**
 	 * generate decription key from encription key
