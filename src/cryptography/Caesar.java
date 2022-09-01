@@ -16,20 +16,32 @@ public class Caesar{
 	 * いずれは、アルファベットの種類を増やし、選択したmodeによって変換方式が変更されるように実装する。
 	 */
 	
-	
 	/**
-	 * shift character once
-	 * @param ch	character
-	 * @return char + 1 mod N
+	 * shit character multiple times
+	 * @param ch			character
+	 * @param shift_times	times to use cir_shitt method
+	 * @return ch + shift_times mod N
 	 */
 	
-	
-	 /**
-	  * shit character multiple times
-	  * @param ch			character
-	  * @param shift_times	times to use cir_shitt method
-	  * @return ch + shift_times mod N
-	  */
+	//chをshift_times分シフトする。
+	//今回は小文字のアルファベット内で、循環シフトする。
+	public char shift(char ch, int shift_times) {
+		
+		//0 =< shift_times < N に設定する。 
+		//これにより、0未満、N以上の整数に対応する。
+		shift_times = shift_times % N;
+		
+		//本処理
+		if(ch != ' ') {
+			//スペースはスペースのまま
+		}else if(ch != 'z' ) {
+			//(char)によりintをcharにキャストすることで、文字コード（UTF-16）に対応した変換をする。
+			ch = (char)(ch + shift_times);			
+		}else{
+			ch = 'a';
+		}
+		return ch;
+	}
 	
 	/**
 	 * encript plaintext into ciphertext by encription key
