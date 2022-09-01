@@ -73,6 +73,11 @@ public class Caesar{
 	 * @return dec_key 		decription key
 	 */
 	
+	public int gen_key(int enc_key) {
+		
+		return -enc_key;
+	}
+	
 	/**
 	 * decript ciphertext into plaintext by decription key
 	 * @param c 			ciphertext
