@@ -13,6 +13,7 @@ public class Main{
 		euclid.extgcd(100, 35);
 	
 		do_enc();
+		do_dec();
 	}
 	
 	public static void do_enc() {
@@ -40,6 +41,29 @@ public class Main{
 		String c = caesar.enc(p, enc_key);
 		System.out.println("Your ciphertext is following;");
 		System.out.println(c);
+		
+	}
+	
+	public static void do_dec() {
+		
+		Caesar caesar = new Caesar();
+		
+		//input plaintext
+		System.out.println("Type chipertext, just using small letter like abc not like ABC.");
+		String c = "ifmmp";
+		System.out.println("Your chiphertext is following:");
+		System.out.println(c);
+		
+		//input encription key
+		System.out.println("Type decription key in integer.");
+		int dec_key = -1;
+		System.out.println("Your decription key is following:");
+		System.out.println(dec_key);
+		
+		//generate plaintext
+		String p = caesar.dec(c, dec_key);
+		System.out.println("Your plaintext is following;");
+		System.out.println(p);
 		
 	}
 }
