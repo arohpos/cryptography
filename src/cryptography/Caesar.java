@@ -17,30 +17,57 @@ public class Caesar{
 	 */
 	
 	/**
-	 * shit character multiple times
+	 * shit character multiple once
 	 * @param ch			character
-	 * @param shift_times	times to use cir_shitt method
-	 * @return ch + shift_times mod N
+	 * @return ch + 1 mod N
 	 */
 	
-	//chをshift_times分シフトする。
+	//chを1回分シフトする。
 	//今回は小文字のアルファベット内で、循環シフトする。
-	public char shift(char ch, int shift_times) {
-		
-		//0 =< shift_times < N に設定する。 
-		//これにより、0未満、N以上の整数に対応する。
-		shift_times = shift_times % N;
+	public char shift_once(char ch) {
 		
 		//本処理
 		if(ch == ' ') {
 			//スペースはスペースのまま
 		}else if(ch != 'z' ) {
 			//(char)によりintをcharにキャストすることで、文字コード（UTF-16）に対応した変換をする。
-			ch = (char)(ch + shift_times);			
+			ch = (char)(ch + 1);			
 		}else{
 			ch = 'a';
 		}
 		return ch;
+	}
+	
+	/**
+	 * shit character multiple once
+	 * @param ch			character
+	 * @param times			time to shift
+	 * @return ch + times mod N
+	 */
+	
+	public char shift_times(char ch, int times) {
+		
+		//0 =< shift_times < N に設定する。 
+		//これにより、0未満、N以上の整数に対応する。
+		times = Math.floorMod(times, N);
+		
+		Caesar caesar = new Caesar();
+		boolean isEnd = false;
+		int i = 0;
+		
+		while(isEnd == false) {
+			
+			ch = caesar.shift_once(ch);
+			i = i+1; 
+			
+			if(i == times) {
+				isEnd =true;
+			}
+			
+		}
+		
+		return ch;
+		
 	}
 	
 	/**
@@ -59,7 +86,7 @@ public class Caesar{
 		for(int i = 0; i < p.length(); i++) {
 			
 			//String pのi番目の文字を取得し、enc_keyをもとにずらして、appendしていく。
-			c.append(caesar.shift(p.charAt(i), enc_key));
+			c.append(caesar.shift_times(p.charAt(i), enc_key));
 			
 		}
 		
@@ -75,7 +102,9 @@ public class Caesar{
 	
 	public int gen_key(int enc_key) {
 		
+		//シーザー暗号の場合、復号鍵は暗号鍵の符号を逆転させたものである。
 		return -enc_key;
+		
 	}
 	
 	/**
@@ -84,5 +113,13 @@ public class Caesar{
 	 * @param dec_key 		decription key
 	 * @return p 			plaintext
 	 */
+	
+	public String dec(String c, int dec_key) {
+		
+		Caesar caesar = new Caesar();
+		
+		//シーザー暗号の場合復号化関数は、本質的に暗号化関数と同じため、同じ関数を用いる。
+		return caesar.enc(c, dec_key);
+	}
 	
 }
