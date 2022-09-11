@@ -1,6 +1,9 @@
-package cryptography;
+package cryptography.main;
 
 import java.util.Scanner;
+
+import cryptography.main.caesar.Caesar;
+import cryptography.main.euclid.Euclid;
 
 public class Main{
 	

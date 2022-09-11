@@ -1,4 +1,4 @@
-package cryptography;
+package cryptography.test.caesar;
 
 
 import org.junit.Test;

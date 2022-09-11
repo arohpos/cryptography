@@ -1,9 +1,11 @@
-package cryptography;
+package cryptography.test.euclid;
 
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import cryptography.main.euclid.Euclid;
 
 /**
  * 
