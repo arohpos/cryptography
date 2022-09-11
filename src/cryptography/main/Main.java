@@ -44,7 +44,7 @@ public class Main{
 		
 		//input plaintext
 		System.out.println("Type plaintext, just using small letter like abc not like ABC.");
-		String p = scanner.next();
+		String p = scanner.nextLine();
 		System.out.println("Your plaintext is following:" + p);
 		
 		//input encription key
@@ -74,7 +74,7 @@ public class Main{
 		
 		//input plaintext
 		System.out.println("Type chipertext, just using small letter like abc not like ABC.");
-		String c = scanner.next();
+		String c = scanner.nextLine();
 		System.out.println("Your chiphertext is following:" + c);
 		
 		//input encription key
