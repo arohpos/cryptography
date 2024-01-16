@@ -3,45 +3,44 @@ package cryptography.main.euclid;
 /**
  * 
  * @author arohpos
- *
+ *https://qiita.com/drken/items/b97ff231e43bce50199a
  */
 
 public class Euclid{
 	
 	/**
-	 * @param m メソッドの引数1
-	 * @param n メソッドの引数2
-	 * @return mとnの最大公約数をintで返す
+	 * 整数組（a, b）の最大公約数を返す。
+	 * @param a 
+	 * @param b 
+	 * @return aとbの最大公約数
 	 */
-	public int gcd(int m, int n) {
-		
-		int r = 0;
-		
-		System.out.print("m = " + m + "、n = " + n + "のとき、");
-		
-		while(n!=0) {
-			
-			r = m % n;
-			m = n;
-			n = r;
-			
+	public int getGcdFor(int a, int b) {
+		//ユークリッドの互徐法を用いる。
+		if(b == 0) {
+			return a;
+		}else {
+			//Thm.2.8.1: If b != 0, then gcd(a, b) = gcd(b, a mod b).
+			return getGcdFor(b, a % b);
 		}
-		
-		System.out.println("最大公約数:" + m);
-		return m;
 	}
 	
-	
 	/**
-	 * @param a メソッドの引数1
-	 * @param b メソッドの引数2
-	 * @return (x, y) s.t. ax + by = gcd(a, b) 
+	 * 整数組(a, b)により定まる一次不定方程式ax + by = gcd(a, b)の解（ベズー係数）を返す。
+	 * @param a
+	 * @param b
+	 * @return ax + by = gcd(a, b)を満たす整数組(x, y)
 	 */
 	
-	public int[] extgcd(int a, int b) {
+	public int[] getBezoutCoefficientFor(int a, int b) {
 		
-		System.out.print("a = " + a + "、 b = " + b + "のとき、");
+		//拡張ユークリッドアルゴリズムを用いる。
+		
+		
+		System.out.println("a = " + a + "、 b = " + b + "に対して、");
 		System.out.println("a * x + b * y = gcd(a, b)をみたす(x, y)をもとめる。");
+		//問題をより小さい問題に帰着できることを記載する。
+		
+		
 		
 		
 		//2つの解を配列を用いて戻り値とする	

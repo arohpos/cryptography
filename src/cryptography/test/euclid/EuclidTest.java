@@ -23,7 +23,7 @@ public class EuclidTest{
 	public void testGcd() {
 		Euclid euclid = new Euclid();
 		
-		assertEquals(5, euclid.gcd(a, b));
+		assertEquals(5, euclid.getGcdFor(a, b));
 		
 	}
 
@@ -32,7 +32,7 @@ public class EuclidTest{
 	public void testExtgcdSol1() {
 		Euclid euclid = new Euclid();
 		
-		assertEquals(-1, euclid.extgcd(a, b)[0]);
+		assertEquals(-1, euclid.getBezoutCoefficientFor(a, b)[0]);
 		
 	}
 	
@@ -41,7 +41,7 @@ public class EuclidTest{
 	public void testExtgcdSol2() {
 		Euclid euclid = new Euclid();
 		
-		assertEquals(3, euclid.extgcd(a, b)[1]);
+		assertEquals(3, euclid.getBezoutCoefficientFor(a, b)[1]);
 		
 	}
 	
@@ -50,7 +50,7 @@ public class EuclidTest{
 	public void testExtgcdEq() {
 		Euclid euclid = new Euclid();
 		
-		assertEquals(euclid.gcd(a, b), a * euclid.extgcd(a, b)[0] + b * euclid.extgcd(a, b)[1]);
+		assertEquals(euclid.getGcdFor(a, b), a * euclid.getBezoutCoefficientFor(a, b)[0] + b * euclid.getBezoutCoefficientFor(a, b)[1]);
 		
 	}
 	
